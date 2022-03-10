@@ -13,9 +13,12 @@ import com.devsuperior.dsmovie.repositories.MovieRepository;
 @Service
 public class MovieService {
 	
+	//MovieService faz requisição para o MovieRepository
 	@Autowired
 	private MovieRepository repository;
 	
+	//Metodo que busca todos os objetos repository,salva em um objeto Page<Movie> result;
+	//Transforma Movie em MovieDTO linha25  e retorna um MovieDTO dto
 	@Transactional(readOnly = true)
 	public Page<MovieDTO> findAll(Pageable pageable){
 		Page<Movie> result = repository.findAll(pageable);
@@ -23,11 +26,15 @@ public class MovieService {
 		return page;
 	}
 	
+	//Metodo que busca um objeto do repository, salva em um objeto Movie result;
+	//Trasforma Movie result em MovieDTO e retorna MovieDTO dto;
 	@Transactional(readOnly = true)
 	public MovieDTO findById(Long id) {
 		Movie result = repository.findById(id).get();
 		MovieDTO dto = new MovieDTO(result);
 		return dto;
 	}
+	
+	
 
 }

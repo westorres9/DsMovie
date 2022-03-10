@@ -15,14 +15,17 @@ import com.devsuperior.dsmovie.services.MovieService;
 @RequestMapping(value = "/movies")
 public class MovieController {
 	
+	//MovieController faz requisiçao pra o service
 	@Autowired
 	private MovieService service;
 	
+	//Metodo que busca Page de MovieDTO retornando o metodo findAll do service
 	@GetMapping
 	public Page<MovieDTO> findAll(Pageable pageable){
 		return service.findAll(pageable);
 	}
 	
+	//Metodo que busca um objeto MovieDTO retornando o metodo findById do service
 	@GetMapping("/{id}")
 	public MovieDTO findById(@PathVariable Long id){
 		return service.findById(id);
