@@ -1,6 +1,7 @@
 import MovieScore from "components/MovieScore"
 import { Link } from "react-router-dom";
 import { Movie } from "types/movie";
+import './styles.css';
 
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 function MovieCard({ movie} : Props) {
 
     return (
-        <div>
+        <div className="movie-card-container">
             <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />
             <div className="dsmovie-card-bottom-container">
                 <h3>{movie.title}</h3>
